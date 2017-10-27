@@ -8,18 +8,17 @@ myApp.controller('GuessWhoController', function(){
     var hiddenPeople = [];
 
     guess.people = peopleArr;
-    guess.newName = '';
-    guess.newGithub = '';
-    
-    console.log(peopleArr);
+
+    guess.personToAdd = {name:'', github:'', show: true, id:peopleArr.length}
 
     // Clicking the submit button runs function to push input data into peopleArr array
-    guess.submit = function() {
+    guess.submit = function(person) {
         if (guess.newName === '' || guess.newGithub === ''){
             alert('You missed an input field')
         } else {
-        peopleArr.push({name: guess.newName, github: guess.newGithub, show:true, id: peopleArr.length});
-        console.log(peopleArr);
+        peopleArr.push(angular.copy(person));
+        guess.personToAdd.name = '';
+        guess.personToAdd.github = '';
         }
     }
 
@@ -41,6 +40,10 @@ myApp.controller('GuessWhoController', function(){
         } else {
             alert('Try Again!');
         } 
+    }
+
+    guess.nameIs = function (person) {
+        guess.personName = person.name;
     }
 
     // Called in guess.thisPerson function

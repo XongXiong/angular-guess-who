@@ -20,16 +20,22 @@
         </div>
 <p>Add a user:</p>
         <div class="flexbox">
-        <input type="text" ng-model="guess.newName" placeholder="Name">
-        <input type="text" ng-model="guess.newGithub" placeholder="Github Username">
-        <button id="submit" ng-click="guess.submit()" ng-focus="guess.newName">Submit</button>
+        <form ng-submit="guess.submit(guess.personToAdd)">
+        <input type="text" ng-model="guess.personToAdd.name" placeholder="Name">
+        <input type="text" ng-model="guess.personToAdd.github" placeholder="Github Username">
+        <input type="submit" id="submitBut">
+        </form>
         </div>
-        <div>
-        <img ng-repeat="person in guess.people | orderBy:'id'" 
-             ng-src="https://github.com/{{person.github}}.png?size=200" 
-             ng-click="guess.thisPerson(person)"
-             ng-show="person.show">
+<p>Search a user:</p>
+        <div class="flexbox" id="searchIn">
+<input type="text" placeholder="Search" ng-model="searchText">
         </div>
+<p>This is: {{guess.personName}}</p>
+<span  ng-repeat="person in guess.people | orderBy:'id' | filter: {name: searchText}">
+<img ng-src="https://github.com/{{person.github}}.png?size=200" ng-click="guess.thisPerson(person)"
+    ng-show="person.show" ng-mouseover="guess.nameIs(person)" ng-mouseenter="myStyle={'opacity':'0.5'}" ng-mouseleave="myStyle={'opacity':'1'}"
+    ng-model="guess.personName" ng-style="myStyle">
+        </span>
     </div>
 </body>
 
