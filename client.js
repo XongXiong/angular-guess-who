@@ -2,9 +2,9 @@ var myApp = angular.module('myApp', []);
 
 myApp.controller('GuessWhoController', function(){
     var guess = this;
-    var people = [{ name: 'Xong', github: 'xongxiong' }, 
-                  {name: 'Chris', github: 'christopher-black'}, 
-                  {name: 'Kris', github: 'kdszafranski'}];
+    var people = [{ name: 'Xong', github: 'xongxiong', show: true}, 
+                  {name: 'Chris', github: 'christopher-black', show: true}, 
+                  {name: 'Kris', github: 'kdszafranski', show: true}];
     guess.people = people;
     guess.newName = '';
     guess.newGithub = '';
@@ -13,24 +13,28 @@ myApp.controller('GuessWhoController', function(){
         console.log(people);
     }
 
-    var rand = 0;
+    guess.rand = 0;
     
     guess.initRand = function () {
-        rand = Math.floor(Math.random() * people.length)
-        console.log(rand);
-        guess.dispName = people[rand].name;
-        console.log(people[rand].name);
+        guess.rand = Math.floor(Math.random() * people.length)
+        guess.dispName = people[guess.rand].name;
     }
-    
+
     guess.thisPerson = function(person) {
-        console.log(person);
+        console.log(person.name);
         if (guess.dispName === person.name) {
             alert('Correct!');
-            people[i].remove();
+            thisPersonShow(person);
+            guess.initRand();
         } else {
             alert('Try Again!');
-        }
-        guess.dispName = person.name;
+        } 
+    }
+
+    function thisPersonShow(person) {
+        var i= guess.people.indexOf(person);
+        console.log(i);
+        people[i].show = false;
     }
 });
 
