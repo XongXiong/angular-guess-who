@@ -13,7 +13,6 @@ myApp.controller('GuessWhoController', function(){
     guess.newGithub = '';
     guess.submit = function() {
         people.push({name: guess.newName, github: guess.newGithub, show:true});
-        console.log(people);
     }
     
     guess.initRand = function () {
@@ -23,7 +22,6 @@ myApp.controller('GuessWhoController', function(){
     }
 
     guess.thisPerson = function(person) {
-        console.log(person.name);
         if (guess.dispName === person.name) {
             alert('Correct!');
             thisPersonShow(person);
@@ -35,17 +33,13 @@ myApp.controller('GuessWhoController', function(){
 
     function thisPersonShow(person) {
         var i= guess.people.indexOf(person);
-        console.log(i);
         people.splice(i, 1);
         hiddenPeople.push(person);
-        console.log(hiddenPeople);
         if (people.length === 0) {
             for (var j = 0; j < hiddenPeople.length; j++) {
                 people.push(hiddenPeople[j]);
             }
             hiddenPeople = [];
-            console.log(hiddenPeople);
-            console.log(people);
         }
     }
 });
