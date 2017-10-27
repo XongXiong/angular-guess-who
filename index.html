@@ -15,7 +15,7 @@
         <input type="text" ng-model="guess.newGithub" placeholder="Github Username">
 <button ng-click="guess.submit()" ng-focus="guess.newName">Submit</button>
 
-<img ng-repeat="person in guess.people" ng-src="https://github.com/{{person.github}}.png?size=200" ng-click="guess.thisPerson(person)" ng-show="person.show" ng-model="guess.rand">
+<img ng-repeat="people in guess.people" ng-src="https://github.com/{{people.github}}.png?size=200" ng-click="guess.thisPerson(people)" ng-show="people.show">
 
     </div>
 </body>
