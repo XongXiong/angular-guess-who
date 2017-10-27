@@ -15,11 +15,11 @@ myApp.controller('GuessWhoController', function(){
     guess.submit = function() {
         peopleArr.push({name: guess.newName, github: guess.newGithub, show:true});
     }
-    
+
     guess.initRand = function () {
         rand = Math.floor(Math.random() * peopleArr.length)
         guess.dispName = peopleArr[rand].name;
-        
+        randomId();
     }
 
     guess.thisPerson = function(person) {
@@ -44,5 +44,12 @@ myApp.controller('GuessWhoController', function(){
             alert('Congratulations!')
         }
     }
+    
+    function randomId() {
+        for (var k = 0; k < peopleArr.length; k++) {
+            var personId= Math.floor(Math.random() * peopleArr.length);
+            peopleArr[personId].id = k;
+         }
+        }
 });
 
