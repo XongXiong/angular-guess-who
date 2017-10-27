@@ -11,6 +11,8 @@ myApp.controller('GuessWhoController', function(){
     guess.newName = '';
     guess.newGithub = '';
     
+    console.log(peopleArr);
+
     // Clicking the submit button runs function to push input data into peopleArr array
     guess.submit = function() {
         if (guess.newName === '' || guess.newGithub === ''){

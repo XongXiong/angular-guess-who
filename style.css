@@ -25,7 +25,9 @@ input {
 }
 
 body {
-    background-image: linear-gradient(to left top, black, blue,black)
+    background-image: linear-gradient(to left top, black, blue,black);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 img {
