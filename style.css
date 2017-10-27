@@ -1,0 +1,38 @@
+h1 {
+    font-size: 60px;
+    color: white;
+}
+
+p {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+h1, p {
+    text-align: center;
+}
+
+input {
+    height: 30px;
+    width: 300px;
+    margin: 0px 10px 10px 0px;
+}
+
+#submit {
+    height: 36px;
+    width: 100px;
+}
+
+body {
+    background-image: linear-gradient(to left top, black, blue,black)
+}
+
+img {
+    margin: 0px 3px 0px 3px;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: center;
+}
