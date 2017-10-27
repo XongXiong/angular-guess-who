@@ -18,7 +18,8 @@ myApp.controller('GuessWhoController', function(){
         if (guess.newName === '' || guess.newGithub === ''){
             alert('You missed an input field')
         } else {
-        peopleArr.push({name: guess.newName, github: guess.newGithub, show:true});
+        peopleArr.push({name: guess.newName, github: guess.newGithub, show:true, id: peopleArr.length});
+        console.log(peopleArr);
         }
     }
 
